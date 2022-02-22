@@ -20,6 +20,7 @@ public class KnapsackProblem {
             for (int j = 0; j < knapsackWeightCapacity; j++) {
                 subKnapsackWeightCapacity = j+1;
                 
+                // Simply select the FIRST item if it fits in the knapsack
                 if (i == 0) {
                     if (currentItem.getWeight() <= subKnapsackWeightCapacity) {
                         values[i][j] = currentItem.getValue();
