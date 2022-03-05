@@ -22,9 +22,15 @@ public class SinglyLinkedListTester {
         System.out.println("Size after inserting Orchid => " + linkedList.size());
         System.out.println();
 
+        // Get - Set operations
+        System.out.println("get() element at index 2 => " + linkedList.get(2));
+        linkedList.set(2, "Tulip");
+        System.out.println("set(2) Tulip => " + stringifyLinkedList(linkedList));
+        System.out.println();
+
         // Remove operations
-        System.out.println("Remove Rose => " + linkedList.remove("Rose"));
-        System.out.println("List after removing Rose => " + stringifyLinkedList(linkedList));
+        System.out.println("Remove Tulip => " + linkedList.remove("Tulip"));
+        System.out.println("List after removing Tulip => " + stringifyLinkedList(linkedList));
         System.out.println();
 
         System.out.println("Remove element at index 1 => " + linkedList.removeAt(1));

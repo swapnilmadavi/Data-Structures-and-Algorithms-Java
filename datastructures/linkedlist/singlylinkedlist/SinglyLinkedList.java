@@ -38,9 +38,8 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     }
 
     public void addAt(int index, T data) {
-        if (index < 0) throw new IllegalArgumentException("Index must be positive");
-        if (index >= size())
-            throw new IllegalArgumentException("Index must be less the size of the list");
+        if (index < 0 || index >= length)
+            throw new IndexOutOfBoundsException("Index must be within the list; found " + index);
 
         Node<T> newNode = new Node<T>(data);
 
@@ -64,9 +63,8 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     }
 
     public T removeAt(int index) {
-        if (index < 0) throw new IllegalArgumentException("Index must be positive");
-        if (index >= size())
-            throw new IllegalArgumentException("Index must be less the size of the list");
+        if (index < 0 || index >= length)
+            throw new IndexOutOfBoundsException("Index must be within the list; found " + index);
 
         T data;
         
@@ -117,6 +115,28 @@ public class SinglyLinkedList<T> implements Iterable<T> {
             currentNode = currentNode.next;
         }
         return false;
+    }
+
+    public void set(int index, T data) {
+        if (index < 0 || index >= length)
+            throw new IndexOutOfBoundsException("Index must be within the list; found " + index);
+
+        Node<T> nodeAtGivenIndex = head;
+        for (int i = 0; i < index; i++) {
+            nodeAtGivenIndex = nodeAtGivenIndex.next;
+        }
+        nodeAtGivenIndex.data = data;
+    }
+
+    public T get(int index) {
+        if (index < 0 || index >= length)
+            throw new IndexOutOfBoundsException("Index must be within the list; found " + index);
+
+        Node<T> nodeAtGivenIndex = head;
+        for (int i = 0; i < index; i++) {
+            nodeAtGivenIndex = nodeAtGivenIndex.next;
+        }
+        return nodeAtGivenIndex.data;
     }
 
     public boolean contains(T data) {
